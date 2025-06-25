@@ -505,6 +505,30 @@
             <a href="#contact" class="btn">Book Your Court</a>
         </div>
     </section>
+    <script>
+        // 图片路径数组
+        const heroImages = [
+            './img/p1.png',
+            './img/p2.jpg',
+            './img/p3.png',
+            './img/p4.jpg',
+            './img/p5.jpg',
+            './img/p6.jpg'
+        ];
+        let heroIndex = 0;
+        const heroSection = document.querySelector('.hero');
+
+        function setHeroBg(idx) {
+            heroSection.style.background = `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('${heroImages[idx]}') no-repeat center center/cover`;
+        }
+
+        setHeroBg(heroIndex);
+
+        setInterval(() => {
+            heroIndex = (heroIndex + 1) % heroImages.length;
+            setHeroBg(heroIndex);
+        }, 3500);
+    </script>
 
     <!-- About Section -->
     <section class="section" id="about">
@@ -573,7 +597,7 @@
     <section class="section" id="gallery">
         <div class="container">
             <div class="section-title">
-                <h2>Our Court Gallery</h2>
+                <h2>Our Court Project</h2>
             </div>
             <div class="gallery-grid">
                 <!-- 本地图片展示，假设 ./img/ 目录下有图片 p1.png, p2.jpg, p3.jpg, p4.png, p5.jpg, p6.png 等 -->
@@ -595,8 +619,8 @@
                 <div class="gallery-item">
                     <img src="./img/p6.jpg" alt="Padel Court 6">
                 </div>
-                </div>
             </div>
+        </div>
         </div>
     </section>
 
