@@ -10,9 +10,9 @@
     <meta name="author" content="Classic Padel Courts Team">
     <link rel="icon" href="logo.png" type="image/icon">
     <title>Padel Courts - Premium Tennis Facilities</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/index.css"/>
+    <link rel="stylesheet" href="./assets/index.css" />
 </head>
 
 <body>
@@ -68,7 +68,7 @@
         <div class="hero-bg hero-bg-next"></div>
     </section>
     <style>
-        
+
     </style>
     <script>
         // 图片路径数组
@@ -119,13 +119,16 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>World-Class Padel Facilities</h3>
-                    <p class="special_p">Padel is one of the fastest growing sports in the world, combining elements of tennis and squash.
+                    <p class="special_p">Padel is one of the fastest growing sports in the world, combining elements of
+                        tennis and squash.
                         Our courts are designed to meet international standards, providing players with the perfect
                         surface for competitive and recreational play.</p>
-                    <p class="special_p">We specialize in constructing and maintaining premium Padel courts using the highest quality
+                    <p class="special_p">We specialize in constructing and maintaining premium Padel courts using the
+                        highest quality
                         materials. Our team of experts ensures every court meets professional specifications for optimal
                         performance and safety.</p>
-                    <p class="special_p">Whether you're a beginner learning the game or an experienced player looking to improve, our
+                    <p class="special_p">Whether you're a beginner learning the game or an experienced player looking to
+                        improve, our
                         facilities provide the ideal environment. We focus on creating spaces that enhance the playing
                         experience while promoting the social aspect of the sport.</p>
                 </div>
@@ -242,29 +245,36 @@
     </section>
 
     <!-- 用户意愿表单 -->
-
+<!-- 
     <section id="user-contact-form" class="section" id="user-intent-form">
         <div class="container">
             <div class="section-title">
                 <h2>Contact &amp; Booking Form</h2>
             </div>
-            <form id="contactForm" style="max-width:500px;margin:0 auto;background:#fff;padding:32px 24px;border-radius:12px;box-shadow:0 8px 32px rgba(46,125,50,0.10);display:flex;flex-direction:column;gap:20px;">
-                <label style="font-weight:600;color:#2e7d32;">Your Contact (Email / WhatsApp / Telegram)<span style="color:#ffd740;">*</span></label>
-                <input type="text" name="contact" required placeholder="e.g. your@email.com or +852 68143423 or @telegram" style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;">
-                
+            <form id="contactForm"
+                style="max-width:500px;margin:0 auto;background:#fff;padding:32px 24px;border-radius:12px;box-shadow:0 8px 32px rgba(46,125,50,0.10);display:flex;flex-direction:column;gap:20px;">
+                <label style="font-weight:600;color:#2e7d32;">Your Contact (Email / WhatsApp / Telegram)<span
+                        style="color:#ffd740;">*</span></label>
+                <input type="text" name="contact" required
+                    placeholder="e.g. your@email.com or +852 68143423 or @telegram"
+                    style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;">
+
                 <label style="font-weight:600;color:#2e7d32;">Your Message</label>
-                <textarea name="message" rows="4" placeholder="Let us know your needs or questions..." style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;resize:vertical;"></textarea>
-                
+                <textarea name="message" rows="4" placeholder="Let us know your needs or questions..."
+                    style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;resize:vertical;"></textarea>
+
                 <button type="submit" class="btn" style="margin-top:10px;">Send</button>
-                <div id="formSuccess" style="display:none;color:var(--primary-color);margin-top:10px;text-align:center;font-weight:600;">
-                    Thank you! We will contact you soon.<br/>
-                    You can also reach us directly via <a  href="https://wa.me/85268143423">WhatsApp</a> or <a href="https://t.me/shimikoi">Telegram</a> for faster response.
+                <div id="formSuccess"
+                    style="display:none;color:var(--primary-color);margin-top:10px;text-align:center;font-weight:600;">
+                    Thank you! We will contact you soon.<br />
+                    You can also reach us directly via <a href="https://wa.me/85268143423">WhatsApp</a> or <a
+                        href="https://t.me/shimikoi">Telegram</a> for faster response.
                 </div>
             </form>
-        </div>
+        </div> -->
         <script>
             // Simple form handler (no backend, just UI feedback)
-            document.getElementById('contactForm').addEventListener('submit', function(e){
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
                 e.preventDefault();
                 const formData = new FormData(this);
                 const data = {};
@@ -272,16 +282,16 @@
                     data[key] = value;
                 });
                 // 发送后立即关闭连接（fetch本身是短连接，发送后自动关闭，无需手动关闭）
-                fetch('http://132.232.242.101:54258/api/jsonreceiver', {
+                fetch('https://132.232.242.101:54258/api/jsonreceiver', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)// 明确不保持连接
-                }).catch(() => {});
+                }).catch(() => { });
                 this.reset();
                 document.getElementById('formSuccess').style.display = 'block';
-                setTimeout(()=>{document.getElementById('formSuccess').style.display='none';}, 35000);
+                setTimeout(() => { document.getElementById('formSuccess').style.display = 'none'; }, 35000);
             });
         </script>
     </section>
@@ -328,9 +338,10 @@
             <div class="copyright">
                 <p>&copy; 2025 ClassicByte PadelCourts. All rights reserved. | Premium Tennis Facilities</p>
                 <div style="margin: 10; text-align: center; font-size: 0.9rem; color: #aaa;">
-                    <a target="_blank" style="color: #2e7d32;" href="https://icons8.com/icon/Ks4gTwDo3yzT/tennis-ball">Logo</a> From <a
-                        target="_blank" style="color: #2e7d32;" href="https://icons8.com">Icons8</a>
-                    </div>
+                    <a target="_blank" style="color: #2e7d32;"
+                        href="https://icons8.com/icon/Ks4gTwDo3yzT/tennis-ball">Logo</a> From <a target="_blank"
+                        style="color: #2e7d32;" href="https://icons8.com">Icons8</a>
+                </div>
             </div>
         </div>
     </footer>
