@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>TF Padel Courts - 震撼Padel球场体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --accent: #ffd740;
+            --text-light: #fff;
+            --text-dark: #222;
+            --nav-bg: rgba(46,125,50,0.92);
+            --transition: all 0.5s cubic-bezier(.77,0,.18,1);
+        }
+        html, body {
+            margin: 0; padding: 0;
+            background: var(--primary-dark);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+        body {
+            overflow-x: hidden;
+        }
+        /* 背景图片渐变动画 */
+        #bg-slideshow {
+            position: fixed;
+            z-index: 0;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+        }
+        .bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.8s;
+            will-change: opacity;
+        }
+        .bg-img.active {
+            opacity: 1;
+        }
+        /* 顶部联系方式 */
+        .contact-bar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 1.1rem 0 0.7rem 0;
+            font-size: 1.1rem;
+            background: transparent;
+            color: var(--accent);
+            font-weight: bold;
+            flex-wrap: wrap;
+            animation: fadeInDown 1.2s;
+        }
+        .contact-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            transition: color 0.3s;
+        }
+        .contact-bar a:hover {
+            color: #fff;
+        }
+        /* 导航栏 */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--nav-bg);
+            box-shadow: 0 4px 24px rgba(46,125,50,0.13);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.7rem 5vw;
+            backdrop-filter: blur(8px) saturate(120%);
+            border-radius: 0 0 18px 18px;
+            animation: fadeInDown 1.2s;
+        }
+        .nav-logo {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.13);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 0.2em 0.5em;
+            transition: color 0.3s;
+        }
+        .nav-links a:after {
+            content: '';
+            display: block;
+            height: 2.5px;
+            width: 0;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+        .nav-links a:hover:after, .nav-links a.active:after {
+            width: 100%;
+        }
+        /* 板块通用样式 */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 5vw;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.2s, transform 1.2s;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: none;
+        }
+        /* Home 板块 */
+        #home {
+            text-align: center;
+        }
+        .main-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+            text-shadow: 0 8px 32px rgba(46,125,50,0.25);
+            animation: popIn 1.2s cubic-bezier(.77,0,.18,1);
+        }
+        .main-desc {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1.2s;
+        }
+        .magic-btn {
+            display: inline-block;
+            padding: 18px 48px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            background: linear-gradient(90deg, var(--accent) 60%, #fff 100%);
+            border: none;
+            border-radius: 40px;
+            box-shadow: 0 8px 32px rgba(46,125,50,0.18);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 1.5rem;
+            letter-spacing: 2px;
+            animation: pulseBtn 2.5s infinite;
+        }
+        .magic-btn:before {
+            content: '';
+            position: absolute;
+            left: -75%;
+            top: 0; bottom: 0;
+            width: 50%;
+            background: linear-gradient(120deg,rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.0) 100%);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+        }
+        .magic-btn:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 16px 48px rgba(46,125,50,0.25);
+            color: var(--primary);
+        }
+        .magic-btn:hover:before {
+            left: 120%;
+        }
+        /* About/Product/Project/Contact 板块 */
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.13);
+        }
+        .section-content {
+            font-size: 1.18rem;
+            color: #fff;
+            background: rgba(46,125,50,0.75);
+            border-radius: 18px;
+            padding: 2.2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(46,125,50,0.10);
+            max-width: 700px;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        /* Project 图片展示 */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .project-img {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(46,125,50,0.13);
+            background: #fff;
+            position: relative;
+            opacity: 0.92;
+            transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+        }
+        .project-img img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+        }
+        .project-img:hover {
+            transform: scale(1.06) rotate(-2deg);
+            z-index: 1;
+        }
+        .project-img:hover img {
+            transform: scale(1.12);
+        }
+        /* 联系方式和版权 */
+        footer {
+            background: linear-gradient(120deg, var(--primary-dark) 60%, var(--primary) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2.5rem 0 1.5rem 0;
+            margin-top: 60px;
+            z-index: 2;
+            position: relative;
+        }
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            font-size: 1.1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            transition: color 0.3s;
+        }
+        .footer-contact a:hover {
+            color: #fff;
+        }
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            letter-spacing: 1px;
+        }
+        /* 动画 */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: none;}
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: none;}
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.7);}
+            80% { opacity: 1; transform: scale(1.08);}
+            100% { opacity: 1; transform: scale(1);}
+        }
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 8px 32px rgba(46,125,50,0.18);}
+            50% { box-shadow: 0 16px 48px rgba(46,125,50,0.28);}
+            100% { box-shadow: 0 8px 32px rgba(46,125,50,0.18);}
+        }
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .main-title { font-size: 2rem; }
+            .section-title { font-size: 1.3rem; }
+            .section-content { font-size: 1rem; padding: 1.2rem 0.7rem;}
+            .project-gallery { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景图片渐变层 -->
+    <div id="bg-slideshow"></div>
+    <!-- 顶部联系方式 -->
+    <div class="contact-bar">
+        <a href="https://wa.me/85268143423" target="_blank"><span>📱</span>WhatsApp: +852 68143423</a>
+        <a href="https://t.me/TFPadelCourts" target="_blank"><span>💬</span>Telegram: @TFPadelCourts</a>
+        <a href="mailto:shimikoiku@outlook.com"><span>✉️</span>Email: shimikoiku@outlook.com</a>
+    </div>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-logo">TF Padel Courts</div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#product">Product</a>
+            <a href="#project">Project</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <!-- 板块内容 -->
+    <section class="section" id="home">
+        <div class="main-title">TF Padel Courts</div>
+        <div class="main-desc">国际标准Padel球场 · 绿色主题 · 震撼体验</div>
+        <button class="magic-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            立即联系我们
+        </button>
+    </section>
+    <section class="section" id="about">
+        <div class="section-title">关于 Padel Court</div>
+        <div class="section-content">
+            Padel是一项融合网球与壁球的现代运动，风靡全球。TF Padel Courts 致力于打造国际标准的Padel球场，采用高品质玻璃墙、专业人造草皮和智能照明系统，带来极致的竞技与休闲体验。我们的场地适合俱乐部、学校、企业及私人活动，全天候开放，安全舒适，让每一位爱好者都能享受Padel的乐趣与激情！
+        </div>
+    </section>
+    <section class="section" id="product">
+        <div class="section-title">球场产品特色</div>
+        <div class="section-content">
+            <ul style="text-align:left;max-width:500px;margin:0 auto 0 auto;color:#fff;">
+                <li>国际标准尺寸：20m x 10m，3m高钢化玻璃墙</li>
+                <li>全天候专业人造草皮</li>
+                <li>智能LED照明系统</li>
+                <li>安全防护围栏与舒适环境</li>
+                <li>支持赛事、培训、娱乐多场景</li>
+            </ul>
+        </div>
+    </section>
+    <section class="section" id="project">
+        <div class="section-title">场地实景展示</div>
+        <div class="project-gallery" id="projectGallery"></div>
+    </section>
+    <section class="section" id="contact">
+        <div class="section-title">联系我们</div>
+        <div class="section-content" style="text-align:center;">
+            <div style="margin-bottom:1.2rem;">
+                <a href="https://wa.me/85268143423" target="_blank" style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">📱 WhatsApp: +852 68143423</a>
+                <a href="https://t.me/TFPadelCourts" target="_blank" style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">💬 Telegram: @TFPadelCourts</a>
+                <a href="mailto:shimikoiku@outlook.com" style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">✉️ Email: shimikoiku@outlook.com</a>
+            </div>
+            <div>欢迎垂询合作、预订及定制服务！</div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-title">TF Padel Courts · 联系方式</div>
+        <div class="footer-contact">
+            <a href="https://wa.me/85268143423" target="_blank"><span>📱</span>WhatsApp: +852 68143423</a>
+            <a href="https://t.me/TFPadelCourts" target="_blank"><span>💬</span>Telegram: @TFPadelCourts</a>
+            <a href="mailto:shimikoiku@outlook.com"><span>✉️</span>Email: shimikoiku@outlook.com</a>
+        </div>
+        <div style="color:#eee;font-size:0.95rem;opacity:0.7;">© 2025 TF Padel Courts. All rights reserved.</div>
+    </footer>
+    <script>
+        // 背景图片渐变轮播
+        const bgImgs = [
+            './img/p1.png','./img/p2.jpg','./img/p3.png','./img/p4.jpg','./img/p5.jpg','./img/p6.jpg',
+            './img/p7.jpg','./img/p8.jpg','./img/p9.jpg','./img/p10.jpg','./img/p11.jpg','./img/p12.jpg'
+        ];
+        const bgSlideshow = document.getElementById('bg-slideshow');
+        let bgNodes = [];
+        bgImgs.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.className = 'bg-img';
+            if(i === 0) img.classList.add('active');
+            bgSlideshow.appendChild(img);
+            bgNodes.push(img);
+        });
+        let bgIdx = 0;
+        setInterval(() => {
+            bgNodes[bgIdx].classList.remove('active');
+            bgIdx = (bgIdx + 1) % bgNodes.length;
+            bgNodes[bgIdx].classList.add('active');
+        }, 3500);
+
+        // Project图片展示
+        const projectImgs = bgImgs;
+        const projectGallery = document.getElementById('projectGallery');
+        projectImgs.forEach((src, i) => {
+            const div = document.createElement('div');
+            div.className = 'project-img';
+            div.innerHTML = `<img src="${src}" alt="Padel Court ${i+1}">`;
+            projectGallery.appendChild(div);
+        });
+
+        // 板块滚动动画
+        function revealSections() {
+            document.querySelectorAll('.section').forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if(rect.top < window.innerHeight * 0.85) sec.classList.add('visible');
+            });
+        }
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+
+        // 导航高亮
+        const navLinks = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            let cur = 'home';
+            document.querySelectorAll('.section').forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if(rect.top < window.innerHeight * 0.3) cur = sec.id;
+            });
+            navLinks.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+            });
+        });
+    </script>
+</body>
+</html>
