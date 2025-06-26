@@ -3,13 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TF Padel Courts - Premium Tennis Facilities</title>
     <meta name="description"
+        content="Book premium Padel tennis courts from TF Padel. Professional Padel court construction, rental, and booking for clubs, schools, and private events. Enjoy world-class facilities, expert installation, and top-quality surfaces.">
+    <meta name="keywords"
+        content="Padel,TF Padel, Padel Courts, Padel Tennis, Court Booking, Sports Facilities, Tennis, Court Construction, Padel Rental, Padel Club, Padel Installation, Indoor Padel, Outdoor Padel, Padel Events, Padel Hong Kong, Padel Booking, Padel Court Builder, Padel Surface, Padel Lighting, Padel Glass, Padel Turf">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description"
         content="Premium Padel Courts - Book your court online and enjoy the best facilities for padel enthusiasts.">
-    <meta name="keywords" content="Padel, Courts, Tennis, Sports, Booking, Facilities">
-    <meta name="author" content="Classic Padel Courts Team">
+    <meta name="keywords" content="Padel, Courts, Tennis, Sports, Booking, Facilities"> -->
+    <meta name="author" content="Thrill & Fun Padel Courts Team">
     <link rel="icon" href="logo.png" type="image/icon">
-    <title>Padel Courts - Premium Tennis Facilities</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/index.css" />
@@ -24,9 +28,9 @@
                     <i class="fab fa-whatsapp"></i>
                     <span>+852 68143423</span>
                 </a>
-                <a href="https://t.me/shimikoi" class="contact-item" target="_blank">
+                <a href="https://t.me/TFPadelCourts" class="contact-item" target="_blank">
                     <i class="fab fa-telegram"></i>
-                    <span>@shimikoi</span>
+                    <span>@TFPadelCourts</span>
                 </a>
                 <a href="mailto:shimikoiku@outlook.com" class="contact-item">
                     <i class="far fa-envelope"></i>
@@ -41,7 +45,7 @@
         <div class="container nav-container">
             <a href="#" class="logo">
                 <i class="fas fa-tennis-ball"></i>
-                PadelCourts
+                TF Padel Courts
             </a>
             <nav>
                 <ul>
@@ -58,7 +62,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 class="mainTitle">Premium Padel Tennis Courts</h1>
+            <h1 class="mainTitle">TF Padel Tennis Courts</h1>
             <p>Experience the finest Padel facilities designed for enthusiasts and professionals alike. Our
                 state-of-the-art courts provide the perfect environment for your game.</p>
             <a href="#user-contact-form" class="btn">Book Your Court</a>
@@ -67,54 +71,12 @@
         <div class="hero-bg hero-bg-current"></div>
         <div class="hero-bg hero-bg-next"></div>
     </section>
-    <style>
-
-    </style>
-    <script>
-        // 图片路径数组
-        const heroImages = [
-            './img/p1.png',
-            './img/p2.jpg',
-            './img/p3.png',
-            './img/p4.jpg',
-            './img/p5.jpg',
-            './img/p6.jpg',
-            './img/p7.jpg',
-            './img/p8.jpg',
-            './img/p9.jpg',
-            './img/p10.jpg',
-            './img/p11.jpg',
-            './img/p12.jpg'
-        ];
-        let heroIndex = 0;
-        const bgCurrent = document.querySelector('.hero-bg-current');
-        const bgNext = document.querySelector('.hero-bg-next');
-
-        function setHeroBg(idx, el) {
-            el.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('${heroImages[idx]}')`;
-        }
-
-        // 初始化
-        setHeroBg(heroIndex, bgCurrent);
-
-        setInterval(() => {
-            const nextIndex = (heroIndex + 1) % heroImages.length;
-            setHeroBg(nextIndex, bgNext);
-            bgNext.style.opacity = 1;
-            // 渐变完成后切换
-            setTimeout(() => {
-                setHeroBg(nextIndex, bgCurrent);
-                bgNext.style.opacity = 0;
-                heroIndex = nextIndex;
-            }, 1200);
-        }, 3500);
-    </script>
 
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Padel Courts</h2>
+                <h2>About TF Padel Courts</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
@@ -139,38 +101,8 @@
                         style="width:100%; height:400px; border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.15); background-size:cover; background-position:center; background-repeat:no-repeat; transition:opacity 1.2s; opacity:0;">
                     </div>
                 </div>
-                <script>
-                    // 渐进显示img目录下的图片
-                    const aboutGalleryImages = [
-                        './img/p1.png',
-                        './img/p2.jpg',
-                        './img/p3.png',
-                        './img/p4.jpg',
-                        './img/p5.jpg',
-                        './img/p6.jpg',
-                        './img/p7.jpg',
-                        './img/p8.jpg',
-                        './img/p9.jpg',
-                        './img/p10.jpg',
-                        './img/p11.jpg',
-                        './img/p12.jpg'
-                    ];
-                    let aboutGalleryIdx = 0;
-                    const aboutGalleryEl = document.getElementById('about-gallery-img');
-                    function showAboutGalleryImg(idx) {
-                        aboutGalleryEl.style.opacity = 0;
-                        setTimeout(() => {
-                            aboutGalleryEl.style.backgroundImage = `url('${aboutGalleryImages[idx]}')`;
-                            aboutGalleryEl.style.opacity = 1;
-                        }, 400);
-                    }
-                    showAboutGalleryImg(aboutGalleryIdx);
-                    setInterval(() => {
-                        aboutGalleryIdx = (aboutGalleryIdx + 1) % aboutGalleryImages.length;
-                        showAboutGalleryImg(aboutGalleryIdx);
-                    }, 2500);
-                </script>
             </div>
+        </div>
         </div>
     </section>
 
@@ -241,26 +173,24 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
-
-    <!-- 用户意愿表单 -->
-<!-- 
+    <!-- 
     <section id="user-contact-form" class="section" id="user-intent-form">
         <div class="container">
             <div class="section-title">
                 <h2>Contact &amp; Booking Form</h2>
             </div>
-            <form id="contactForm"
-                style="max-width:500px;margin:0 auto;background:#fff;padding:32px 24px;border-radius:12px;box-shadow:0 8px 32px rgba(46,125,50,0.10);display:flex;flex-direction:column;gap:20px;">
-                <label style="font-weight:600;color:#2e7d32;">Your Contact (Email / WhatsApp / Telegram)<span
+            <form id="contactForm">
+                <label for="contact" aria-label="Your Contact (Email / WhatsApp / Telegram)"
+                    style="font-weight:600;color:#2e7d32;">Your Contact (Email / WhatsApp / Telegram)<span
                         style="color:#ffd740;">*</span></label>
-                <input type="text" name="contact" required
+                <input type="text" id="contact" name="contact" required
                     placeholder="e.g. your@email.com or +852 68143423 or @telegram"
                     style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;">
 
-                <label style="font-weight:600;color:#2e7d32;">Your Message</label>
-                <textarea name="message" rows="4" placeholder="Let us know your needs or questions..."
+                <label for="message" aria-label="Your Message" style="font-weight:600;color:#2e7d32;">Your
+                    Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Let us know your needs or questions..."
                     style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;resize:vertical;"></textarea>
 
                 <button type="submit" class="btn" style="margin-top:10px;">Send</button>
@@ -268,40 +198,18 @@
                     style="display:none;color:var(--primary-color);margin-top:10px;text-align:center;font-weight:600;">
                     Thank you! We will contact you soon.<br />
                     You can also reach us directly via <a href="https://wa.me/85268143423">WhatsApp</a> or <a
-                        href="https://t.me/shimikoi">Telegram</a> for faster response.
+                        href="https://t.me/TFPadelCourts">Telegram</a> for faster response.
                 </div>
             </form>
-        </div> -->
-        <script>
-            // Simple form handler (no backend, just UI feedback)
-            document.getElementById('contactForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                const data = {};
-                formData.forEach((value, key) => {
-                    data[key] = value;
-                });
-                // 发送后立即关闭连接（fetch本身是短连接，发送后自动关闭，无需手动关闭）
-                fetch('https://132.232.242.101:54258/api/jsonreceiver', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)// 明确不保持连接
-                }).catch(() => { });
-                this.reset();
-                document.getElementById('formSuccess').style.display = 'block';
-                setTimeout(() => { document.getElementById('formSuccess').style.display = 'none'; }, 35000);
-            });
-        </script>
-    </section>
+        </div>
+    </section> -->
 
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>PadelCourts</h3>
+                    <h3>TF Padel Courts</h3>
                     <p>Providing premium Padel tennis facilities for players of all levels. Our expertly designed courts
                         offer the perfect environment to enjoy this exciting sport.</p>
                     <div class="contact-icons" style="justify-content: flex-start; margin-top: 20px;">
@@ -309,9 +217,9 @@
                             <i class="fab fa-whatsapp"></i>
                             <span>+852 68143423</span>
                         </a>
-                        <a href="https://t.me/shimikoi" class="contact-item" target="_blank">
+                        <a href="https://t.me/TFPadelCourts" class="contact-item" target="_blank">
                             <i class="fab fa-telegram"></i>
-                            <span>@shimikoi</span>
+                            <span>@TFPadelCourts</span>
                         </a>
                         <a href="mailto:shimikoiku@outlook.com" class="contact-item">
                             <i class="far fa-envelope"></i>
@@ -336,7 +244,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2025 ClassicByte PadelCourts. All rights reserved. | Premium Tennis Facilities</p>
+                <p>&copy; 2025 TF Padel Courts. All rights reserved. | Premium Tennis Facilities</p>
                 <div style="margin: 10; text-align: center; font-size: 0.9rem; color: #aaa;">
                     <a target="_blank" style="color: #2e7d32;"
                         href="https://icons8.com/icon/Ks4gTwDo3yzT/tennis-ball">Logo</a> From <a target="_blank"
@@ -346,37 +254,7 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .Project-item, .about-text, .about-image').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="./assets/index.js"></script>
 </body>
 
 </html>
