@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>TF Padel Courts - Stunning Padel Court Experience</title>
@@ -11,12 +12,13 @@
             --accent: #ffd740;
             --text-light: #fff;
             --text-dark: #222;
-            --nav-bg: rgba(46,125,50,0.92);
-            --glass-bg: rgba(46,125,50,0.55);
-            --transition: all 0.5s cubic-bezier(.77,0,.18,1);
+            --nav-bg: rgba(46, 125, 50, 0.92);
+            --glass-bg: rgba(46, 125, 50, 0.55);
+            --transition: all 0.5s cubic-bezier(.77, 0, .18, 1);
         }
 
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             background: var(--primary-dark);
@@ -52,9 +54,10 @@
             will-change: opacity;
         }
 
-            .bg-img.active {
-                opacity: 1;
-            }
+        .bg-img.active {
+            opacity: 1;
+        }
+
         /* 顶部联系方式 */
         .contact-bar {
             position: relative;
@@ -73,26 +76,26 @@
             backdrop-filter: blur(8px) saturate(120%);
         }
 
-            .contact-bar a {
-                color: var(--accent);
-                text-decoration: none;
-                font-weight: bold;
-                display: flex;
-                align-items: center;
-                gap: 0.5em;
-                transition: color 0.3s;
-            }
+        .contact-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            transition: color 0.3s;
+        }
 
-                .contact-bar a:hover {
-                    color: #fff;
-                }
+        .contact-bar a:hover {
+            color: #fff;
+        }
 
         nav {
             position: sticky;
             top: 0;
             z-index: 10;
             background: var(--nav-bg);
-            box-shadow: 0 4px 24px rgba(46,125,50,0.13);
+            box-shadow: 0 4px 24px rgba(46, 125, 50, 0.13);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -107,7 +110,7 @@
             font-weight: 900;
             color: var(--accent);
             letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.13);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
         }
 
         .nav-links {
@@ -115,34 +118,37 @@
             gap: 2.2rem;
         }
 
-            .nav-links a {
-                color: var(--text-light);
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 1.1rem;
-                letter-spacing: 1px;
-                position: relative;
-                padding: 0.2em 0.5em;
-                transition: color 0.3s;
-            }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 0.2em 0.5em;
+            transition: color 0.3s;
+        }
 
-                .nav-links a:after {
-                    content: '';
-                    display: block;
-                    height: 2.5px;
-                    width: 0;
-                    background: var(--accent);
-                    border-radius: 2px;
-                    transition: width 0.3s;
-                }
+        .nav-links a:after {
+            content: '';
+            display: block;
+            height: 2.5px;
+            width: 0;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
 
-                .nav-links a:hover, .nav-links a.active {
-                    color: var(--accent);
-                }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
 
-                    .nav-links a:hover:after, .nav-links a.active:after {
-                        width: 100%;
-                    }
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
         /* 板块通用样式 */
         .section {
             min-height: 100vh;
@@ -158,24 +164,25 @@
             transition: opacity 1.2s, transform 1.2s;
         }
 
-            .section.visible {
-                opacity: 1;
-                transform: none;
-            }
+        .section.visible {
+            opacity: 1;
+            transform: none;
+        }
 
         .glass-box {
             background: var(--glass-bg);
             border-radius: 28px;
-            box-shadow: 0 8px 32px rgba(46,125,50,0.18);
+            box-shadow: 0 8px 32px rgba(46, 125, 50, 0.18);
             backdrop-filter: blur(18px) saturate(120%);
             padding: 3.2rem 2.2rem;
             max-width: 800px;
             width: 100%;
             margin: 2.5rem 0;
             color: #fff;
-            border: 1.5px solid rgba(255,255,255,0.13);
+            border: 1.5px solid rgba(255, 255, 255, 0.13);
             text-align: center;
         }
+
         /* Home 板块 */
         #home .main-title {
             font-size: 3.2rem;
@@ -183,8 +190,8 @@
             letter-spacing: 2px;
             margin-bottom: 1.2rem;
             color: var(--text-light);
-            text-shadow: 0 8px 32px rgba(46,125,50,0.25);
-            animation: popIn 1.2s cubic-bezier(.77,0,.18,1);
+            text-shadow: 0 8px 32px rgba(46, 125, 50, 0.25);
+            animation: popIn 1.2s cubic-bezier(.77, 0, .18, 1);
         }
 
         #home .main-desc {
@@ -204,7 +211,7 @@
             background: linear-gradient(90deg, var(--accent) 60%, #fff 100%);
             border: none;
             border-radius: 40px;
-            box-shadow: 0 8px 32px rgba(46,125,50,0.18);
+            box-shadow: 0 8px 32px rgba(46, 125, 50, 0.18);
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -214,27 +221,27 @@
             animation: pulseBtn 2.5s infinite;
         }
 
-            .magic-btn:before {
-                content: '';
-                position: absolute;
-                left: -75%;
-                top: 0;
-                bottom: 0;
-                width: 50%;
-                background: linear-gradient(120deg,rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.0) 100%);
-                transform: skewX(-20deg);
-                transition: left 0.5s;
-            }
+        .magic-btn:before {
+            content: '';
+            position: absolute;
+            left: -75%;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.0) 100%);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+        }
 
-            .magic-btn:hover {
-                transform: scale(1.07) rotate(-2deg);
-                box-shadow: 0 16px 48px rgba(46,125,50,0.25);
-                color: var(--primary);
-            }
+        .magic-btn:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 16px 48px rgba(46, 125, 50, 0.25);
+            color: var(--primary);
+        }
 
-                .magic-btn:hover:before {
-                    left: 120%;
-                }
+        .magic-btn:hover:before {
+            left: 120%;
+        }
 
         .section-title {
             font-size: 2.2rem;
@@ -242,7 +249,7 @@
             font-weight: 700;
             margin-bottom: 1.2rem;
             letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.13);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
         }
 
         .section-content {
@@ -252,7 +259,7 @@
             border-radius: 18px;
             padding: 0;
             box-shadow: none;
-/*            max-width: 700px;*/
+            /*            max-width: 700px;*/
             margin-bottom: 1.5rem;
             line-height: 1.8;
         }
@@ -261,13 +268,14 @@
             font-size: 1.18rem;
             color: #fff;
             background: transparent;
-/*            border-radius: 18px;*/
-/*            padding: 0;*/
-/*            box-shadow: none;*/
-/*            max-width: 700px;*/
+            /*            border-radius: 18px;*/
+            /*            padding: 0;*/
+            /*            box-shadow: none;*/
+            /*            max-width: 700px;*/
             margin-bottom: 1.5rem;
             line-height: 1.8;
         }
+
         /* Project 图片展示 */
         .project-gallery {
             display: grid;
@@ -281,29 +289,30 @@
         .project-img {
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(46,125,50,0.13);
+            box-shadow: 0 4px 24px rgba(46, 125, 50, 0.13);
             background: #fff;
             position: relative;
             opacity: 0.92;
-            transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+            transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
         }
 
-            .project-img img {
-                width: 100%;
-                height: 180px;
-                object-fit: cover;
-                display: block;
-                transition: transform 0.7s cubic-bezier(.77,0,.18,1);
-            }
+        .project-img img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
+        }
 
-            .project-img:hover {
-                transform: scale(1.06) rotate(-2deg);
-                z-index: 1;
-            }
+        .project-img:hover {
+            transform: scale(1.06) rotate(-2deg);
+            z-index: 1;
+        }
 
-                .project-img:hover img {
-                    transform: scale(1.12);
-                }
+        .project-img:hover img {
+            transform: scale(1.12);
+        }
+
         /* 联系方式和版权 */
         footer {
             background: linear-gradient(120deg, var(--primary-dark) 60%, var(--primary) 100%);
@@ -324,19 +333,19 @@
             margin-bottom: 1.2rem;
         }
 
-            .footer-contact a {
-                color: var(--accent);
-                text-decoration: none;
-                font-weight: bold;
-                display: flex;
-                align-items: center;
-                gap: 0.5em;
-                transition: color 0.3s;
-            }
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            transition: color 0.3s;
+        }
 
-                .footer-contact a:hover {
-                    color: #fff;
-                }
+        .footer-contact a:hover {
+            color: #fff;
+        }
 
         .footer-title {
             font-size: 1.3rem;
@@ -388,15 +397,15 @@
 
         @keyframes pulseBtn {
             0% {
-                box-shadow: 0 8px 32px rgba(46,125,50,0.18);
+                box-shadow: 0 8px 32px rgba(46, 125, 50, 0.18);
             }
 
             50% {
-                box-shadow: 0 16px 48px rgba(46,125,50,0.28);
+                box-shadow: 0 16px 48px rgba(46, 125, 50, 0.28);
             }
 
             100% {
-                box-shadow: 0 8px 32px rgba(46,125,50,0.18);
+                box-shadow: 0 8px 32px rgba(46, 125, 50, 0.18);
             }
         }
 
@@ -430,6 +439,7 @@
                 gap: 1rem;
             }
         }
+
         @media (max-width: 700px) {
             nav {
                 padding: 0.3rem 2vw;
@@ -460,10 +470,11 @@
         }
 
         .glass-box {
-            background: rgba(255,255,255,0.10) !important;
+            background: rgba(255, 255, 255, 0.10) !important;
         }
     </style>
 </head>
+
 <body>
     <!-- 背景图片渐变层 -->
     <div id="bg-slideshow"></div>
@@ -498,7 +509,11 @@
         <div class="glass-box">
             <div class="section-title">About Padel Court</div>
             <div class="section-content">
-                Padel is a modern sport that combines the best of tennis and squash, popular worldwide. TF Padel Courts is dedicated to building international-standard padel courts, using high-quality glass walls, professional artificial turf, and smart lighting systems to deliver the ultimate competitive and leisure experience. Our venues are suitable for clubs, schools, companies, and private events, open all year round, safe and comfortable, so every enthusiast can enjoy the fun and passion of padel!
+                Padel is a modern sport that combines the best of tennis and squash, popular worldwide. TF Padel Courts
+                is dedicated to building international-standard padel courts, using high-quality glass walls,
+                professional artificial turf, and smart lighting systems to deliver the ultimate competitive and leisure
+                experience. Our venues are suitable for clubs, schools, companies, and private events, open all year
+                round, safe and comfortable, so every enthusiast can enjoy the fun and passion of padel!
             </div>
         </div>
     </section>
@@ -518,7 +533,7 @@
     </section>
     <section class="section" id="project">
         <div class="glass-box">
-            <div class="section-title">Project Gallery</div>
+            <div class="section-title">Padel Court Project</div>
             <div class="project-gallery" id="projectGallery"></div>
         </div>
     </section>
@@ -527,13 +542,19 @@
             <div class="section-title">Contact Us</div>
             <div class="contact-content">
                 <div style="margin-bottom:1.2rem;">
-                    <a href="https://wa.me/85268143423" target="_blank" style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">📱 WhatsApp: +852 68143423</a>
+                    <a href="https://wa.me/85268143423" target="_blank"
+                        style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">📱 WhatsApp:
+                        +852 68143423</a>
                     <br />
-                    <a href="https://t.me/TFPadelCourts" target="_blank" style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">💬 Telegram: @TFPadelCourts</a>
+                    <a href="https://t.me/TFPadelCourts" target="_blank"
+                        style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">💬 Telegram:
+                        @TFPadelCourts</a>
                     <br />
-                    <a href="mailto:shimikoiku@outlook.com" style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">✉️ Email: shimikoiku@outlook.com</a>
+                    <a href="mailto:shimikoiku@outlook.com"
+                        style="color:var(--accent);font-weight:bold;text-decoration:none;margin:0 1.2em;">✉️ Email:
+                        shimikoiku@outlook.com</a>
                 </div>
-                <div >Welcome to consult for cooperation, booking, and customization!</div>
+                <div>Welcome to consult for cooperation, booking, and customization!</div>
             </div>
         </div>
     </section>
@@ -603,4 +624,5 @@
         });
     </script>
 </body>
+
 </html>
